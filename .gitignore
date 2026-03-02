@@ -17,3 +17,6 @@ data/reads/
 
 # Temporary BLAST outputs can be large/noisy
 results/**/*.xml
+
+# Script-local scratch outputs
+scripts/results/
