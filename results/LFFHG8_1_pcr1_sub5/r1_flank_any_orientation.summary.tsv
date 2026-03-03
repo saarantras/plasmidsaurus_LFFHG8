@@ -1,0 +1,11 @@
+metric	value
+total_reads	4586.0
+left_hit_reads	3491.0
+left_hit_pct	0.7612298299171392
+right_hit_reads	3369.0
+right_hit_pct	0.734627126035761
+flanked_reads	2819.0
+flanked_pct	0.6146969036197122
+window	80.0
+min_aln_len	12.0
+min_identity	0.8
