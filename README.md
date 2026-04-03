@@ -1,6 +1,6 @@
-# plasmidsaurus_alignments
+# plasmidsaurus_scmpra_troubleshooting
 
-Align long reads from Plasmidsaurus to reference sequences (plasmid or amplicon) and generate read-density maps, including coverage over annotated GenBank features.
+Long-read sequencing analysis for troubleshooting scmPRA PCR amplification. Aligns Plasmidsaurus reads to reference amplicons, characterizes contaminants, and quantifies R1-primer-flanked reads to diagnose PCR failures.
 
 ## Environment
 Conda env used: `plasmidsaurus-align`
@@ -77,12 +77,12 @@ Outputs:
 ### 2) Quantify per-read explainability
 ```bash
 conda run -n plasmidsaurus-align python scripts/quantify_human_cdna_explained.py \
-  --reads data/reads/LFFHG8_fastq/LFFHG8_1_pcr1_sub5.fastq \
+  --reads data/reads/<sample>.fastq \
   --ref-mmi data/human_refs/v48/human_transcripts.mmi \
   --threads 8 \
   --min-query-cov 0.50 \
   --min-identity 0.80 \
-  --out-prefix results/LFFHG8_1_pcr1_sub5/human_cdna_explainability
+  --out-prefix results/<sample>/human_cdna_explainability
 ```
 
 Primary outputs:
@@ -108,14 +108,6 @@ Key metrics in `summary.tsv`:
 - `bases_explained_fraction = explained_bases / total_bases`
 - `mapped_to_human_fraction = mapped_to_human_reads / total_reads`
 
-## LFFHG8 + gblock_f1r1 run status
-- Reference provided and used: `data/references/gblock_f1r1.gb`
-- FASTQ used: `data/reads/LFFHG8_fastq/LFFHG8_1_pcr1_sub5.fastq` (unpacked from `data/reads/LFFHG8_fastq.zip`)
-- Alignment run completed successfully.
-- `samtools flagstat`: `4 / 4586` reads mapped (`0.09%`).
-- Feature coverage and plots were generated in `results/LFFHG8_1_pcr1_sub5/`.
-- Earlier mock smoke-test outputs are preserved in `results/LFFHG8_1_pcr1_sub5_mock/`.
-
 ## Suggested layout
 ```text
 data/
@@ -130,5 +122,7 @@ Use this table to track which read file is mapped to which reference and whether
 
 | sample_id | reads_file | reference_genbank | reference_seq_name | status (amplicon/plasmid) | notes |
 |---|---|---|---|---|---|
-| LFFHG8_1_pcr1_sub5 | `data/reads/LFFHG8_fastq/LFFHG8_1_pcr1_sub5.fastq` | `data/references/gblock_f1r1.gb` | `gblock_f1r1` | amplicon | Aligned; 4/4586 reads mapped (0.09%) |
+| LFFHG8_1_pcr1_sub5 | `data/reads/LFFHG8_fastq/LFFHG8_1_pcr1_sub5.fastq` | `data/references/gblock_f1r1.gb` | `gblock_f1r1` | amplicon | 4/4586 reads mapped (0.09%); dominated by R1-flanked rDNA contaminant (~21.5%) |
 | LFFHG8_1_pcr1_sub5_mock | `data/reads/LFFHG8_1_pcr1_sub5.mock.fastq` | `data/references/gblock_f1r1.gb` | `gblock_f1r1` | amplicon | Historical smoke-test input generated from consensus FASTA |
+| 3LV7H5_1_sub5 | `data/reads/3LV7H5_1_5.fastq` | -- | -- | amplicon | R1-flank + contaminant analysis only; 49.5% R1-flanked reads |
+| 3LV7H5_2_sub6 | `data/reads/3LV7H5_2_6.fastq` | -- | -- | amplicon | R1-flank + contaminant analysis only; 56.6% R1-flanked reads |
