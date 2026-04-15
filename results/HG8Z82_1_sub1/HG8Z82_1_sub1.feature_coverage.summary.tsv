@@ -1,0 +1,8 @@
+contig	start	end	feature_type	feature_id	strand	length	covered_bases	frac_bases_covered	mean_depth	median_depth	max_depth	total_depth
+gblock_f1r1	0	22	primer	F1 primer	+	22	22	1.0	14.0	14.0	14.0	308.0
+gblock_f1r1	32	48	misc_feature	MPRA_barcode	+	16	16	1.0	11.875	13.0	14.0	190.0
+gblock_f1r1	107	227	misc_feature	terminator	+	120	120	1.0	7.216666666666667	2.0	17.0	866.0
+gblock_f1r1	241	254	misc_feature	pA	+	13	2	0.15384615384615385	0.3076923076923077	0.0	2.0	4.0
+gblock_f1r1	254	340	misc_feature	parse_biosciences_extra	-	86	0	0.0	0.0	0.0	0.0	0.0
+gblock_f1r1	347	367	primer	R1 primer	-	20	0	0.0	0.0	0.0	0.0	0.0
+gblock_f1r1	348	367	primer	R3 primer	-	19	0	0.0	0.0	0.0	0.0	0.0

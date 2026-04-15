@@ -1,0 +1,7 @@
+total_primary	18
+pass_mapq	18
+barcode_extracted	14
+unique_barcodes	11
+clean_barcodes_reads	2
+barcode_region	32-48 (0-based, len=16)
+min_mapq	10

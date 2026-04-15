@@ -4,7 +4,7 @@ source_url	https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_48/
 source_basename	gencode.v48.transcripts.fa.gz
 expected_md5	e4a4d396cca5dd6d0889248b9e93b42a
 actual_md5	e4a4d396cca5dd6d0889248b9e93b42a
-download_or_verify_utc	2026-03-03T21:56:53Z
+download_or_verify_utc	2026-04-15T18:37:04Z
 fasta_gz	data/human_refs/v48/human_transcripts.fa.gz
 fasta	data/human_refs/v48/human_transcripts.fa
 minimap2_index	data/human_refs/v48/human_transcripts.mmi
